@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>User dashboard</title>
+
+</head>
+
+<body>
+
+<!--Users dashboard-->
+
+	<div class='userdb-sidebar'>
+		<div id='dashboardmenu'>
+			<div class='badge bg-light center-logo'>
+				<a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a>
+			</div>
+
+			<div class='mt-5 align-dashboard-items'>
+				<ul>
+					<a href='{{ url_for('userdashboard') }}'><li class=''><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+					<a href='{{ url_for('userprofile') }}'><li class='dmenulist'><i class="fa-solid fa-address-card"></i></i> Profile</li></a>
+					<a href='#'><li class='dmenulist'><i class="fa-solid fa-house"></i> Preferred properties</li></a>
+					<a href='#'><li class='dmenulist'><i class="fa-solid fa-headset"></i></i> Help & Support</li></a>
+					<a href='{{url_for ('userlogout')}}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i> Logout </li></a>
+				</ul>
+				
+			</div>
+
+
+		</div>
+
+
+		<div id='dashboardcontent'>
+			<div class="welcome-btn">
+				<span class='mt-3 ms-3 small-letters'><i class="fa-solid fa-face-smile"></i> Greetings, {{ userdetails.username }}</span>
+				<button type="button" class="btn btn-sm btn-outline-success mt-3 me-3 small-letters"><a href='{{ url_for('property') }}'><i class="fa-solid fa-house"></i>View properties</a></button>
+			</div>
+			
+		</div>
+		
+			<!-- <div class='col-12 col-md-2' id='dashboardmenu'>
+				<div id='dashboardlogo'>
+					<div class='ms-md-5 badge bg-light'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+				</div>
+				<div class='mt-3'>
+					<ul>
+						<a href='{{ url_for('userdashboard') }}'><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+						<a href='{{ url_for('userprofile') }}'><li class='dmenulist'><i class="fa-solid fa-address-card"></i></i> Profile</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-house"></i> Preferred properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-headset"></i></i> Help & Support</li></a>
+						<a href='{{url_for ('userlogout')}}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i> Logout </li></a>
+					</ul>
+					
+				</div>
+			</div>
+			<div class='col-12 col-md-10' id='dashboardcontent'>
+				<div class='col-12'>
+					<span class='col-3 mt-3 ms-3'><i class="fa-solid fa-face-smile"></i> Greetings, {{ userdetails.username }}</span>
+					<button type="button" class="offset-8 btn btn-outline-success mt-3"><a href='{{ url_for('property') }}'><i class="fa-solid fa-house"></i>View properties</a></button>
+				</div>
+				</div>  -->
+	
+	</div>
+
+
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>

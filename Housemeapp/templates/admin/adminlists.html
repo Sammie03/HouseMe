@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme Admin page</title>
+
+</head>
+
+<body>
+
+<!--Property owner dashboard-->
+
+
+<div class='container-fluid'>
+	<div class='row mt-2'>
+		
+			<div class='col-2' id='dashboardmenu'>
+				<div class='col-4 offset-4 offset-md-0' id='logospace'>
+				<div class='ms-md-5 badge bg-light'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+				<div class='mt-3'>
+
+
+					<ul>
+                        
+						<a href='{{ url_for('admindashboard') }}'><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+						<a href='{{ url_for('adminlist') }}'><li class='dmenulist'><i class="fa-solid fa-house"></i> List a property</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-list"></i> My listings</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-money-bill"></i> Manage subscription</li></a>
+						<a href='{{ url_for('allproperties') }}'><li class='dmenulist'><i class="fa-solid fa-house"></i> All properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-pen"></i> Pending approvals</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-thumbs-up"></i> Active properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-house-chimney-user"></i> Property owners</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-users"></i> Users</li></a>
+						<a href='{{ url_for('adminlogout') }}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i> Logout</li></a>
+					</ul>
+				</div>
+			</div>
+			<div class='col-10' id='dashboardcontent'>
+                <form action='{{ url_for('adminpropertydetails') }}' method='post' enctype="multipart/form-data">
+                    <h4 align='center' class='mt-2'>LIST PROPERTY</h4>
+                    <input type='hidden' name='csrf_token' value="{{ csrf_token() }}"> 
+                    <div class='col-6 offset-3' >
+                        <div class="input-group mb-3">
+                                       <select class="form-select form-control" name='propertytype'>
+                                      <option disabled selected>Property type</option>
+                                      {% for p in property %}
+                                            <option value="{{ p.type_id }}">{{ p.property_name }}</option>
+                                       {% endfor %}
+                                    </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Price (Naira)</span>
+                              <input type="text" class="form-control" name='price' aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon3">Address</span>
+                              <input type="text" class="form-control" name='address' aria-describedby="basic-addon3">
+                            </div>
+
+                            <div class="input-group mb-3">
+                             <select class="form-select form-control" aria-label="Default select example" name='state' id='state'>
+                                      <option disabled selected>Select State</option>
+                                      {% for s in states %}
+                                            <option value="{{ s.state_id }}">{{ s.state_name }}</option>
+                                       {% endfor %}
+                                    </select>
+                            </div>
+
+                                <div class="input-group mb-3">
+                             <select class="form-select form-control" aria-label="Default select example" name='lga' id='lga'>
+                                      <option disabled selected>Select LGA</option>
+                                      {% for l in lga %}
+                                            <option value="{{ l.lga_id }}">{{ l.lga_name }}</option>
+                                       {% endfor %}
+                                    </select>
+                            </div>
+
+                                <span>Available Amenities</span>
+                                
+                                   {% for a in amenities %}
+                                  <div class="checkbox input-group">
+                                  <label><input type="checkbox" name="amenities" value="{{ a.amenities_id }}"> {{ a.amenities_name }} </label><br>
+                                  </div>
+                                    {% endfor %}
+                                
+
+                            
+
+                            <div class="input-group mt-3">
+                              <span class="input-group-text">Description</span>
+                              <textarea class="form-control" name='description' aria-label="With textarea" rows="5%"></textarea>
+                            </div>
+
+                            <div class="input-group mt-3">
+                              <input type="file" class="form-control" id="images" name='images' multiple>
+                              <label class="input-group-text" for="inputGroupFile02">Upload Property images</label>
+                            </div>
+                    </div>
+                            <button type='submit' class='btn btn-outline-light col-md-2 offset-5 mt-3'>Submit</button>
+                </form>
+	</div>
+</div>
+
+
+
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>

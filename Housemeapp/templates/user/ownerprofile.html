@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme property owner page</title>
+
+</head>
+
+<body>
+
+<!--Property owner dashboard-->
+
+
+<div class='container-fluid'>
+	<div class='row mt-2'>
+		
+			<div class='col-2' id='dashboardmenu'>
+				<div class='center-logo' id='logospace'>
+          <div class='badge bg-light'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+				<div class='mt-3'>
+
+					<ul>
+              <a href='{{url_for('propertyowner')}}'><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+              <a href='{{url_for('listproperty')}}'><li class='dmenulist'><i class="fa-solid fa-house"></i> List a property</li></a>
+              <a href='{{ url_for('owner_listings') }}'><li class='dmenulist'><i class="fa-solid fa-list"></i> My listings</li></a>
+              <a href='#'><li class='dmenulist'><i class="fa-solid fa-money-bill"></i> Subscription</li></a>
+              <a href='{{ url_for('pownerprofile') }}'><li class='dmenulist'><i class="fa-solid fa-address-card"></i></i> Profile</li></a>
+              <a href='{{ url_for('pownerlogout') }}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i></i> Logout </li></a>
+					</ul>
+					
+				</div>
+			</div>
+			<div class='col-12 col-md-10'>
+        <h4 align='center' class="mt-5">PROFILE</h4>
+        {% set m = get_flashed_messages() %}
+        {% if m %}
+        {% for i in m %}
+        <p class='alert alert-success'>{{i}}</p>
+        {% endfor %}
+        {% endif %}
+        <form action='{{ url_for('owner_update') }}' method='post'>
+            <!--{csrf_token}-->
+           <input type='hidden' name='csrf_token' value="{{ csrf_token() }}"> 
+             <div class="input-group mt-5">
+                              <span class="input-group-text">First and Last name</span>
+                              <input type="text" class="form-control" placeholder="First name" name="pownerfname" value="{{ propertyowner.owner_fname }}">
+                              <input type="text" class="form-control" placeholder="Last name" name="pownerlname" value="{{ propertyowner.owner_lname }}">
+                               </div>
+                           <div class="input-group mb-3 mt-5 col-8">
+                             <span class="input-group-text" id="basic-addon1">Email Address</span>
+                             <input type="email" class="form-control" aria-describedby="basic-addon1" name='powneremail' value="{{ propertyowner.owner_email }}" readonly>
+                           </div>
+
+                           <div class="input-group mb-3 mt-5 col-8">
+                             <span class="input-group-text" id="basic-addon2">Username</span>
+                             <input type="text" class="form-control" aria-describedby="basic-addon2" name='pownerusername' value="{{ propertyowner.owner_username }}">
+                           </div>
+
+
+                           <div class="input-group mb-3 mt-5 col-8">
+                             <span class="input-group-text" id="basic-addon2">Phone number</span>
+                             <input type="text" class="form-control" aria-describedby="basic-addon2" name='pownerphone' value="{{ propertyowner.owner_phone }}">
+                           </div>
+
+
+                           <div class="input-group mb-3 mt-5 col-8">
+                               <span class="input-group-text" id="basic-addon3">Password</span>
+                             <input type="password" class="form-control" aria-describedby="basic-addon3" name='pownerpw' value="{{ propertyowner.owner_pword }}">
+                           </div>
+                           <button type="submit" class="btn btn-outline-light btn-sm mt-5 col-5 offset-4">Save changes</button>
+                       </form>
+                      </div>
+        </div>
+	
+	</div>
+</div>
+
+
+
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>
+
+

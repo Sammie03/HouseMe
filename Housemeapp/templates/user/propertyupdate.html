@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme post property</title>
+
+</head>
+
+<body>
+
+<!--logo-->
+<header>
+	<div class='container-fluid px-0'>
+		<div class='row'>
+			<div class='col-4 offset-4 offset-md-5' id='logospace'>
+				<div class='ms-md-5 badge bg-light'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+			<div class='col-2 offset-2 offset-md-1 mt-3'>
+					<a href='#' class='socialmedia2'><i class="fa-brands fa-facebook-square socialmedia fa-lg"></i></a>
+					<a href='#' class='socialmedia2'><i class="fa-brands fa-twitter-square socialmedia fa-lg"></i></a>
+					<a href='#' class='socialmedia2'><i class="fa-brands fa-instagram-square socialmedia fa-lg"></i></a>
+					<a href='#' class='socialmedia2'><i class="fa-brands fa-linkedin socialmedia fa-lg"></i></a>
+			</div>
+		</div>
+
+<!--banner-->
+		<div class='row'>
+			<div class='col px-0' id='resetpasswordbanner'>
+			
+
+<!--banner overlay-->
+		<div class='row px-0' id='resetpasswordoverlay'>
+				<div id="myTab" class='col-4 ms-4'>
+
+<!-- Nav bar -->
+		<nav class="navbar navbar-expand-lg navbar" id='navbar'>
+ 			  <div class="container-fluid">
+    			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id='navtoggle'>
+      		<span class="navbar-toggler-icon"></span>
+    			</button>
+    		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      	<ul class="navbar-nav me-auto mb-2 mb-lg-0" id='nav-items'>
+        		<li class="nav-item">
+          		<a class="nav-link menuitem" aria-current="page" href="{{ url_for('homepage') }}"><i class="fa-solid fa-house"></i> Home</a>
+        		</li>
+        		<li class="nav-item">
+          		<a class="nav-link menuitem" href="{{ url_for('property') }}">Properties</a>
+        		</li>
+         		<li class="nav-item">
+          		<a class="nav-link menuitem" href="{{ url_for('aboutus') }}">About us</a>
+        		</li>
+         		<li class="nav-item">
+          		<a class="nav-link menuitem" href="{{ url_for('contactus') }}">Contact</a>
+        		</li>
+    		</div>
+		</nav>
+	</div>
+
+		</div>
+  	</div>
+  	</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!--Property lisitng form-->
+
+<div class='container-fluid'>
+						<div class='row'>
+							<div class='col'>
+								<div class='col-12 offset-5'>
+								<h3 class='mt-5'>PROPERTY DETAILS</h3>
+								</div>
+								<form action='/owner/property/update/{{property.property_id}}' method='post' enctype="multipart/form-data">
+								<input type='hidden' name='csrf_token' value="{{ csrf_token() }}"> 
+								<div class='col-6 offset-3' >
+									<div class="input-group mb-3">
+										  	 	<select class="form-select form-control" name='propertytype'>
+										  		<option disabled selected>Property type</option>
+														{% for i in propertytype %}
+														{% if i.type_id == property.propertytype.type_id  %}
+													    <option value="{{ i.type_id }}" selected>{{ i.property_name }}</option>
+														{%else%}
+														<option value="{{ i.type_id }}">{{ i.property_name }}</option>
+														{%endif%}
+														{%endfor%}
+											           
+												</select>
+										</div>
+
+										<div class="input-group mb-3">
+										  <span class="input-group-text">Price (Naira)</span>
+										  <input type="text" class="form-control" name='price' aria-describedby="basic-addon1" value={{ property.property_price }}>
+										</div>
+
+										<div class="input-group mb-3">
+										  <span class="input-group-text" id="basic-addon3">Address</span>
+										  <input type="text" class="form-control" name='address' aria-describedby="basic-addon3" value='{{ property.property_address }}'>
+										</div>
+
+										<div class="input-group mb-3">
+										 <select class="form-select form-control" aria-label="Default select example" name='state' id='state'>
+										  		<option disabled selected>Select State</option>
+												  {% for s in states %}
+												   {% if s.state_id == property.lgaarea.state_id %}
+													    <option value="{{ s.state_id }}" selected>{{ s.state_name }}</option>
+														{% else %}
+														<option value="{{ s.state_id }}">{{ s.state_name }}</option>
+													{% endif %}
+												   {% endfor %}
+												</select>
+										</div>
+
+											<div class="input-group mb-3">
+										 <select class="form-select form-control" aria-label="Default select example" name='lga' id='lga'>
+										  		<option disabled selected>Select LGA</option>
+												  {% for l in lga %}
+												  {% if l.lga_id==property.property_lgaid  %}
+												   <option value="{{ l.lga_id }}" selected>{{ l.lga_name }}</option>
+												   {% else %}
+												   <option value="{{ l.lga_id }}">{{ l.lga_name }}</option>
+												   {% endif %}
+												   {% endfor %}
+												</select>
+										</div>
+
+									
+										<span>Available Amenities</span>
+											
+									
+										{% for a in amenities %}
+									   <div class="checkbox input-group">
+
+									   {% if a.amenities_id == property.amenitiesid %}
+									   <label><input type="checkbox" name="amenities" value="{{ a.amenities_id }}" checked> {{ a.amenities_name }} </label><br>
+
+									   {%else%}
+									   <label><input type="checkbox" name="amenities" value="{{ a.amenities_id }}"> {{ a.amenities_name }} </label><br>
+									   {%endif%}
+								
+										</div>
+										{% endfor %}
+									  
+								
+											
+	
+										
+
+										<div class="input-group mt-3">
+										  <span class="input-group-text">Description</span>
+										  <textarea class="form-control" name='description' aria-label="With textarea" rows="5%">{{ property.property_description }}</textarea>
+										</div>
+
+										<div class="input-group mt-3">
+										  <input type="file" class="form-control" id="images" name='images' multiple>
+										  <label class="input-group-text" for="inputGroupFile02">Upload Property images</label>
+										</div>
+								</div>
+										<button type='submit' class='btn btn-outline-light col-md-2 offset-5 mt-5'>Update details</button>
+							</form>
+
+							</div>
+						</div>
+					</div>
+
+
+
+<!--Footer-->
+
+							<footer>
+							<div class='container-fluid'>
+								<div class='row mt-5' id='footer'>
+										<div class='col-12 col-md-3 mt-3 ps-5'>
+											<img src='/static/images/houseme.png' height='70px' width='40%' alt='logo' id='footerlogo'>
+											<p class='mt-2' id='footermsg'>
+												HouseMe is a leading property listing website in Nigeria with properties for rent. We offer property seekers an easy way to house-hunt.
+											</p>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Our company</h5>
+											<ul>
+												<a href='{{ url_for('homepage') }}'><li>Home</li></a>
+												<a href='{{ url_for('property') }}'><li>Properties</li></a>
+												<a href='{{ url_for('contactus') }}'><li>Contact us</li></a>
+												<a href='{{ url_for('aboutus') }}'><li>About us</li></a>
+												<a href='#'><li>Terms of us</li></a>
+												<a href='#'><li>Privacy policy</li></a>
+											</ul>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Popular locations</h5>
+											<ul>
+												<a href='#'><li>Lagos Mainland</li></a>
+												<a href='#'><li>Lagos Island</li></a>
+												<a href='#'><li>Ibeju-Lekki</li></a>
+												<a href='#'><li>Surulere</li></a>
+												<a href='#'><li>Ikorodu</li></a>
+											</ul>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Social media</h5>
+											<ul>
+												<a href='#'><li><i class="fa-brands fa-facebook-square"></i> Facebook</li></a>
+												<a href='#'><li><i class="fa-brands fa-twitter-square"></i> Twitter</li></a>
+												<a href='#'><li><i class="fa-brands fa-instagram-square"></i> Instagram</li></a>
+												<a href='#'><li><i class="fa-brands fa-linkedin"></i> Linkedin</li></a>
+											</ul>
+										</div>
+										<div class='col-12 mt-4 ms-4 footertxt'>
+											<p> ©Copyright 2022 HouseMe all rights reserved</p>
+										</div>
+								</div>
+							</div>
+						</footer>
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>

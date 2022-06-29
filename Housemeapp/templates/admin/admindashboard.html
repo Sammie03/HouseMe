@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme Admin page</title>
+
+</head>
+
+<body>
+
+<!--Property owner dashboard-->
+
+
+<div class='container-fluid'>
+	<div class='row mt-2'>
+		
+			<div class='col-2' id='dashboardmenu'>
+				<div class='center-logo' id='logospace'>
+				<div class=''><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+				<div class='mt-3'>
+
+
+					<ul>
+						<a href="{{ url_for('admindashboard') }}"><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+						<a href="{{ url_for('adminlist') }}"><li class='dmenulist'><i class="fa-solid fa-house"></i> List a property</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-list"></i> My listings</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-money-bill"></i> Manage subscription</li></a>
+						<a href="{{ url_for('allproperties') }}"><li class='dmenulist'><i class="fa-solid fa-house"></i> All properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-pen"></i> Pending approvals</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-thumbs-up"></i> Active properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-house-chimney-user"></i> Property owners</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-users"></i> Users</li></a>
+						<a href="{{ url_for('adminlogout') }}"><li class='dmenulist'><i class="fa-solid fa-power-off"></i> Logout</li></a>
+					</ul>
+				</div>
+			</div>
+			<div class='col-10' id='dashboardcontent'>
+				<div class='col-12'>
+					<span class='col-3 mt-3'><i class="fa-solid fa-face-smile"></i></i> Greetings, {{ admindeets.admin_username }}</span>
+					<a href="{{ url_for('postproperty') }}" class="offset-8 btn btn-outline-success mt-3"><i class="fa-solid fa-house"></i> List your property</a>
+				</div>
+				
+				
+				
+				  <div class="row align-items-center mt-5">
+					    <div class="col-12 col-md-2 offset-md-1 mt-5 mt-md-0 dashboarditems">
+					      <span align="center">All listings</span>
+					    </div>
+					    <div class="col-12 col-md-2 offset-md-2 mt-5 mt-md-0 dashboarditems">
+					      <span align="center">Active listings</span>
+					    </div>
+					    <div class="col-12 col-md-2 offset-md-2 mt-5 mt-md-0 dashboarditems">
+					      <span align="center">Inactive listings</span>
+					    </div>
+					      <div class="col-12 col-md-2 offset-md-1 mt-5 dashboarditems">
+					      <span align="center">Manage Subscriptions</span>
+					    </div>
+					    <div class="col-12 col-md-2 offset-md-2 mt-5 dashboarditems">
+					      <span align="center">Pending Approvals</span>
+					    </div>
+					      <div class="col-12 col-md-2 offset-md-2 mt-5 dashboarditems">
+					      <span align="center">All users</span>
+					    </div>
+					      <div class="col-12 col-md-2 offset-md-1 mt-5 dashboarditems">
+					      <span align="center">Property owners</span>
+					    </div>
+					  </div>
+				</div>
+	
+	</div>
+</div>
+
+
+
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>

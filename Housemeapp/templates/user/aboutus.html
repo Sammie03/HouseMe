@@ -1,0 +1,69 @@
+{% extends 'user/layout.html' %}
+{% block banner %}
+
+<!--banner-->
+		<div class='row'>
+			<div class='col px-0' id='aboutusbanner'>
+			
+
+<!--banner overlay-->
+		<div class='row px-0' id='aboutusbanneroverlay'>
+				<div id="myTab" class='col-4 ms-4'>
+{% endblock %}
+<!-- Nav bar -->
+
+{% block content %}
+<!-- banner text -->
+		<div class='col-12 ms-5'>
+				<h1 class='bannertext animate__flipInX aboutus'>ABOUT US</h1>
+				<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+					  <ol class="breadcrumb">
+					    <li class="breadcrumb-item"><a href="#">Home</a></li>
+					    <li class="breadcrumb-item active" aria-current="page">About us</li>
+					  </ol>
+				</nav>
+				
+		</div>
+	
+		</div>
+  	</div>
+  	</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!--aboutus body-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      {{Error|upper}}
+      <h2 class='mt-2'>Who we are</h2>
+      
+      <p>HouseMe is an online real estate market place, committed to rendering top-notch networking services and marketing services of real estate  including land, houses, hostels, shops, office spaces, warehouses, and other commercial properties of several sizes.
+
+		We help match you with the ideal property that suits your needs without stress.</p>
+      <button class="btn btn-outline-success btn-lg">Get in Touch</button>
+    </div>
+    <div class="col-sm-4 mt-5">
+      <img src='/static/images/aboutus.jpg' alt='aboutus' class='img-fluid img-thumbnail'>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4 mt-5">
+      <img src='/static/images/aboutus2.jpg' alt='aboutus2' class='img-fluid img-thumbnail'> 
+    </div>
+    <div class="col-sm-8 mt-5">
+      <h2>Our Values</h2>
+      <p><strong>MISSION:</strong> Our misson is to make the house-hunting process seamless.</p>
+      <p><strong>VISION:</strong> Our vision is to become the most used property listing platform in Africa.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+		
+

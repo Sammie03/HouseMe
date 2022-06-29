@@ -1,0 +1,480 @@
+/*HouseMe web application*/
+
+/*homepage styling*/
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+a{
+	list-style-type: none;
+	text-decoration: none!important;
+	color: rgb(196, 154, 106)!important;
+	font-family: 'Anek Devanagari', sans-serif;
+}
+
+.menuitem:hover{
+	background-color: rgba(173, 121, 57, 0.7);
+	color: white!important;
+}
+
+
+#login{
+	background-image: url(images/banner1.jpg);
+	background-size: cover;
+}
+ 
+#navtoggle{
+	color: red;
+	z-index: 1;	
+}
+
+#bannervideo {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  position: absolute;
+  top: 1;
+  left: 0;
+  z-index: -1;
+}
+
+#myTab{
+ height: 100px;
+}
+
+.bannertext{
+	color: rgba(255, 255, 255, 1.0)!important;
+}
+
+.socialmedia, .socialmedia2 {
+	box-shadow: 5px 5px 5px grey;
+	margin: 2px;
+	text-decoration: none;
+	color: rgba(96, 56, 8);
+}
+
+.socialmedia:hover{
+	color:red;
+}
+
+#banneroverlay{
+	background-color: rgba(96, 56, 8, 0.2);
+	width: 100%;
+  	height: 700px;
+  	object-fit: cover;
+}
+
+
+@media only screen and (max-width: 768px){ 
+	.keywordbox{
+	  margin-left: 25px;
+	}
+}
+
+.property-list{
+	display:flex;
+	width:100%;
+	justify-content: center;
+}
+
+@media only screen and (max-width: 768px){ 
+	.card{
+	  width: 100% !important;
+	}
+}
+
+.center-btn{
+	display: flex;
+	justify-content: center;
+}
+
+#navbarSupportedContent{
+	z-index:1000;
+}
+
+
+.bannerdropdown{
+	display: inline-block;
+}
+
+
+h1,h2,h3,h4,h5, span{
+	color: rgb(127, 79, 36)!important;
+	font-family: 'Anek Devanagari', sans-serif;
+
+}
+
+h6{
+	color: rgb(147, 102, 57)!important;
+	font-family: 'EB Garamond', serif;
+}
+
+.exploreproperties{
+	border: 1px double gainsboro;
+}
+
+
+#listproperty{
+	background-image: url(images/listproperty.jpg);
+	background-size: cover;
+	height: 200px;
+  	background-attachment: fixed;
+  	width: 100%;
+}
+
+#listpropertyoverlay{
+	background-color: rgba(96, 56, 8, 0.4); 
+	height: 200px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#listwithus{
+	display: inline-block;
+}
+
+#listprotext{
+	color: rgba(255, 255, 255, 1.0)!important;
+}
+
+#whyus{
+	box-shadow: 5px 5px 5px grey; ;
+}
+
+.menuitem{
+	color: rgba(96, 56, 8, 1.0)!important;
+	background-color: rgba(220,220,220,0.9);
+}
+
+.housemeprocess{
+	border-left: thin double rosybrown;
+	border-bottom: thin dotted rosybrown; 
+}
+
+#quote{
+	border: 1px double gainsboro;
+}
+
+
+#footer{
+	background: linear-gradient(to bottom, rgb(139, 94, 52), rgb(96, 56, 8), rgb(88, 49, 1), rgb(88, 49, 1));
+
+}
+
+.footertxt{
+	color: rgb(182, 173, 144)!important;
+}
+
+#footermsg{
+	color: rgb(255, 255, 255);
+}
+
+ul{
+	list-style-type: none;
+}
+
+#toplogo{
+	height: 50px;
+}
+
+.footeritem{
+	height: 300px;	
+}
+
+#footerlogo{
+	background-color: rgb(243, 213, 181);
+}
+
+button{
+	border-color: rgb(88, 49, 1)!important;
+	color: rgba(96, 56, 8, 0.8)!important;
+	background-color: rgba(255, 255, 255, 0.9)!important;
+}
+
+button:hover{
+	background-color: rgba(96, 56, 8, 0.4)!important;
+	color: rgb(255, 255, 255)!important;
+}
+
+/*loginprofile*/
+
+#loginprofilebg{
+	background-image: url(images/loginprofile.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 600px;
+}
+
+#loginprofileoverlay{
+	background-color: rgba(255, 255, 255, 0.3);
+	height: 600px;
+	background-size: cover;
+}
+
+.modalbtn{
+	display: flex;
+	justify-content: center;
+}
+
+
+/*loginpage*/
+
+
+#loginpagebg{
+	background-image: url(images/loginpage.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 750px;
+}
+
+#loginpageoverlay{
+	background-color: rgba(255, 255, 255, 0.3);
+	height: 750px;
+	background-size: cover;
+}
+
+#navdiv{
+	background-color: rgba(88, 47, 14, 0.9);
+}
+
+#loginfooter{
+	background-color: rgba(88, 47, 14, 0.9) ;
+}
+
+
+
+@media only screen and (max-width: 768px){ 
+	#loginpagebg{
+	  display: none;
+	}
+}
+
+/*signuppage*/
+
+#signuppagebg{
+	background-image: url(images/loginpage.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 750px;
+}
+
+#signuppageoverlay{
+	background-color: rgba(255, 255, 255, 0.3);
+	height: 750px;
+	background-size: cover;
+}
+
+@media only screen and (max-width: 768px){ 
+	#signuppagebg{
+	 display: none;
+	}
+}
+
+
+/*signupprofile*/
+
+
+#signupprofilebg{
+	background-image: url(images/signupprofile.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 750px;
+}
+
+#signupprofileoverlay{
+	background-color: rgba(255, 255, 255, 0.3);
+	height: 750px;
+	background-size: cover;
+}
+
+
+/*Property page*/
+
+#propertypagebanner{
+	background-image: url('images/propertybanner.jpg');
+	background-size: cover;
+	height: 600px;
+	background-position: center;
+}
+
+.center-page-nav{
+	display:flex;
+	justify-content: center;
+	margin-top: 20px !important;
+}
+
+#propertybanneroverlay{
+	background-color: rgba(255, 255, 255, 0.5);
+	background-size: cover;
+	height: 600px;
+}
+
+
+/*About us page*/
+
+#aboutusbanner{
+	background-image: url('images/aboutusbanner.jpg');
+	background-size: cover;
+	height: 450px;
+	background-position: center;
+}
+
+#aboutusbanneroverlay{
+	background-color: rgba(56, 55, 55, 0.5);
+	background-size: cover;
+	height: 450px;
+}
+
+
+/*Contact us page*/
+
+#contactusbanner{
+	background-image: url('images/contactusbanner.jpg');
+	background-size: cover;
+	height: 450px;
+	background-position: center;
+}
+
+#contactusbanneroverlay{
+	background-color: rgba(56, 55, 55, 0.5);;
+	background-size: cover;
+	height: 450px;
+}
+
+
+/*Password reset page*/
+
+#resetpasswordbanner{
+	background-image: url('images/pwreset.jpg');
+	background-size: cover;
+	height: 250px;
+	background-position: center;
+}
+
+#resetpasswordoverlay{
+	background-color: rgba(255, 255, 255, 0.5);
+	background-size: cover;
+	height: 250px;
+}
+
+.fpw-btn{
+	display:flex;
+	justify-content: center;
+}
+
+
+/*Property owner dashboard*/
+
+#dashboardmenu{
+
+	border: 1px double rosybrown;
+	height: 1000px;
+	background-color: rgb(88, 47, 14);
+	width:200px;
+}
+
+@media only screen and (max-width: 768px){ 
+
+	#dashboardmenu{
+		height: auto;
+		width:100%;
+	}
+}
+
+
+#dashboardcontent{
+
+	border: 1px double rosybrown;
+	height: 1000px;
+	width: 85%;
+}
+
+@media only screen and (max-width: 768px){ 
+
+	#dashboardcontent{
+		height: auto;
+		width: 100%;
+	}
+}
+
+.dmenulist{
+	margin-top: 80px;
+}
+
+.dashboarditems{
+	border:  1px solid gainsboro;
+	height: 200px;
+}
+
+/* userdashboard */
+
+.userdb-sidebar{
+	display:flex;
+	flex-direction: row;
+}
+
+@media only screen and (max-width: 768px){ 
+	.userdb-sidebar{
+		display:flex;
+		flex-direction: column;
+	}
+}
+
+
+
+.center-logo{
+	display:flex !important;
+	justify-content: center !important;
+}
+
+.align-dashboard-items{
+	display:flex;
+	justify-content: flex-start;
+}
+
+.welcome-btn{
+	display: flex;
+	justify-content: space-between;
+}
+
+.small-letters{
+	font-size: small;
+}
+
+.similar-props{
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+}
+
+@media only screen and (max-width: 768px){ 
+.similar-props{
+	 flex-direction: column;
+	}
+}
+/* 
+.search-btn{
+	display: flex;
+	justify-content: center !important;
+	align-items: center !important;
+} */
+
+.powner-dboard{
+	display:flex;
+	justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+{% extends 'user/layout.html' %}
+
+{% block banner %}
+
+<!--banner-->
+		<div class='row'>
+			<div class='col px-0' id='propertypagebanner'>
+			
+
+<!--banner overlay-->
+		<div class='row px-0' id='propertybanneroverlay'>
+				<div id="myTab" class='col-4 ms-4'>
+
+{% endblock %}
+
+{% block content %}
+<!-- banner text -->
+		<div class='col-12 ms-5'>
+				<h1 class='bannertext animate__flipInX'>PROPERTY NAME</h1>
+				<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+					  <ol class="breadcrumb">
+					    <li class="breadcrumb-item"><a href="#">Home</a></li>
+					    <li class="breadcrumb-item active" aria-current="page">Property name</li>
+					  </ol>
+				</nav>
+				
+		</div>
+
+
+<!-- banner search box -->
+<form class='row input-group' action='/index/searchbox/' method='post'>
+	<input type='hidden' name='csrf_token' value={{ csrf_token() }}>
+	<div class='col'> 
+		<div class="col-11 col-md-8 offset-md-2 keywordbox">
+		  <input type="search" class="form-control" name='keywords' id="keywordsearch" placeholder="Type Keyword">
+		</div>
+
+		<div class="col col-md-8 offset-md-2 mb-3">
+
+			<div class="col-11 col-md-3 ms-4 ms-md-0 mt-3 bannerdropdown">
+				<select class="form-select form-control" aria-label="Default select example" name='proptype'>
+				
+				  <option disabled selected>Property type</option>
+				  {% for p in property %}
+				  <option value="{{ p.type_id }}">{{ p.property_name }}</option>
+				   {% endfor %}
+				</select>
+			</div>
+
+
+			<div class="col-11 col-md-2 ms-4 ms-md-3 mt-3 bannerdropdown">
+				
+				<select class="form-select form-control" aria-label="Default select example" name='state' id='states'>
+
+						  <option disabled selected>Select State</option>
+						  {% for s in states %}
+						<option value="{{ s.state_id }}">{{ s.state_name }}</option>
+						{% endfor %}
+				</select>
+			</div>
+
+
+			<div class="col-11 col-md-2 ms-4 ms-md-3 mt-3 bannerdropdown">
+				<select class="form-select form-control" aria-label="Default select example" name="lga" id='lgas'>
+						  <option selected value=''>Select lga</option>
+				</select>
+			</div>
+
+			<div class="col-11 col-md-2 ms-4 ms-md-3 mt-3 bannerdropdown">
+				<select class="form-select form-control" aria-label="Default select example" name='minprice'>
+				  <option selected>Min price</option>
+				  <option value="100000">100000</option>
+				  <option value="200000">200000</option>
+				  <option value="300000">300000</option>
+				  <option value="400000">400000</option>
+				  <option value="500000">500000</option>
+				</select>
+			</div>
+
+			<div class="col-11 col-md-2 ms-4 ms-md-2 mt-3 bannerdropdown">
+				<select class="form-select form-control" aria-label="Default select example" name='maxprice'>
+				  <option selected>Max price</option>
+				<option value="100000">100000</option>
+				  <option value="200000">200000</option>
+				  <option value="300000">300000</option>
+				<option value="400000">400000</option>
+				  <option value="500000">500000</option>
+				</select>
+			</div>
+		
+		<div>
+			<button type="submit" class="btn btn-outline-primary col-3 col-md-2  mt-3 offset-5"><i class="fa-solid fa-magnifying-glass"></i> Search</i></button>
+		</div>
+</form>
+		</div>
+  	</div>
+  	</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!--Available properties-->
+		<section>
+				<div class='container-fluid'>
+					<div class='row'>
+						{% for p in property %}
+						<div class='col-md-8 offset-md-2 mt-5'>
+							<div class="card mt-4" style="width: 100%">
+								 	<img src="/static/images/property_images/{{ p.property_images }}" class="card-img-top img-thumbnail" alt="property">
+								  		<div class="card-body">
+								    			<h5 class="card-title">Description</h5>
+								    			<p class="card-text">{{p.property_description}}</p>
+								  		</div>
+								  		<ul class="list-group list-group-flush">
+										  	<li class="list-group-item">Type: {{ p.propertytype.property_name }}</li>
+										    <li class="list-group-item">Location: {{p.property_address}}</li>
+										    <li class="list-group-item">Price: {{p.property_price}}</li>
+											<li class="list-group-item">Owner's contact: {{p.propertyowner.owner_phone}}</li>
+											<li class="list-group-item"><u>Amenities</u><br>
+												{% for i in p.propertyid %}
+												{% if i %}
+											   <span> {{loop.index}}. {{ i.amenities.amenities_name| capitalize }}<br> </span>
+												 {%endif%}
+											   {% else %}
+											   <span>None</span>
+											   {% endfor %}
+											 </li>
+										   </ul>
+								  		<div class="card-body">
+										    <span class="card-link">Status:</span>
+										    <a href="#" class="card-link">Available</a>
+								  		</div>
+								  		<div class="card-footer">
+								        <small class="text-muted">{{p.date_posted}}</small>
+								      </div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class='container'>
+					<div class='row'>
+						<div class='col mt-5'>
+							<h6 align='center'>Similar properties in the location</h6>
+						</div>
+					</div>
+				</div>
+				
+					<div class='similar-props'>
+					{% for s in similarproperty %}
+					<div class='mt-5'>
+						<a href='#'><div class="card" style="width: 18rem;">
+		  			<img src="/static/images/house1.jpg" class="card-img-top img-thumbnail" alt="property">
+		  		<div class="card-body">
+		    			<h5 class="card-title">Description: </h5>
+		    			<p class="card-text">{{s.property_description}}</p>
+		  		</div>
+		  		<ul class="list-group list-group-flush">
+				  	<li class="list-group-item">Type: {{s.propertytype.property_name}}</li>
+				    <li class="list-group-item">Location: {{s.property_address}}</li>
+				    <li class="list-group-item">Price: {{ s.property_price }}</li>
+				   </ul>
+		  		<div class="card-body">
+				    <span class="card-link">Status:</span>
+				    <a href="#" class="card-link">Available</a>
+		  		</div>
+		  		<div class="card-footer">
+		        <small class="text-muted">{{s.date_posted}}</small>
+		
+		      </div>
+		</div></a>
+		
+	</div>
+	{% endfor %}
+	
+			</section>
+	{% endblock %}
+

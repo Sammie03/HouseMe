@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme Admin page</title>
+
+</head>
+
+<body>
+
+<!--Property owner dashboard-->
+
+
+<div class='container-fluid'>
+	<div class='row mt-2'>
+		
+			<div class='col-2' id='dashboardmenu'>
+				<div class='col-4 offset-4 offset-md-0' id='logospace'>
+				<div class='ms-md-5'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+				<div class='mt-3'>
+
+
+					<ul>
+						<a href='{{ url_for('admindashboard') }}'><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+						<a href='{{ url_for('adminlist') }}'><li class='dmenulist'><i class="fa-solid fa-house"></i> List a property</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-list"></i> My listings</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-money-bill"></i> Manage subscription</li></a>
+						<a href='{{ url_for('allproperties') }}'><li class='dmenulist'><i class="fa-solid fa-house"></i> All properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-pen"></i> Pending approvals</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-thumbs-up"></i> Active properties</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-house-chimney-user"></i> Property owners</li></a>
+						<a href='#'><li class='dmenulist'><i class="fa-solid fa-users"></i> Users</li></a>
+						<a href='{{ url_for('adminlogout') }}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i> Logout</li></a>
+					</ul>
+				</div>
+			</div>
+
+ 
+
+            <div class='col-10'>
+              <h4 align='center' class='mt-3'>All listed properties</h4>
+              {% set m = get_flashed_messages() %}
+              {% if m %}
+              {% for n in m %}
+              <p class='alert alert-success'>{{n}}</p>
+              {% endfor %}
+              {% endif %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">S/N</th>
+                        <th scope="col">Property_address</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in allproperties %}
+                      <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ p.property_address }}</td>
+                        <td>{{ p.property_price }}</td>
+                        <td>{{ p.property_description }}</td>
+                        <td>{{ p.propertyowner.owner_username}}</td>
+                        <td>{{ p.property_status }}</td>
+                        <td><a href='' class='btn btn-success btn-sm'>Update</a> <a href='/admin/delete/listing/{{p.property_id}}' class='btn btn-danger btn-sm mt-2'>Delete</a></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+  
+<script src='jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'>
+
+
+</script>
+</body>
+</html>

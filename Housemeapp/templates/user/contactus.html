@@ -1,0 +1,156 @@
+{% extends '/user/layout.html' %}
+{% block banner %}
+
+<!--banner-->
+		<div class='row'>
+			<div class='col px-0' id='contactusbanner'>
+			
+
+<!--banner overlay-->
+		<div class='row px-0' id='contactusbanneroverlay'>
+				<div id="myTab" class='col-4 ms-4'>
+{% endblock %}
+
+<!-- Nav bar -->
+		<nav class="navbar navbar-expand-lg navbar" id='navbar'>
+ 			  <div class="container-fluid">
+    			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id='navtoggle'>
+      		<span class="navbar-toggler-icon"></span>
+    			</button>
+    		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      	<ul class="navbar-nav me-auto mb-2 mb-lg-0" id='nav-items'>
+        		<li class="nav-item">
+          		<a class="nav-link menuitem" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Home</a>
+        		</li>
+        		<li class="nav-item">
+          		<a class="nav-link menuitem" href="#">Properties</a>
+        		</li>
+         		<li class="nav-item">
+          		<a class="nav-link menuitem" href="#">About us</a>
+        		</li>
+         		<li class="nav-item">
+          		<a class="nav-link menuitem" href="#">Contact</a>
+        		</li>
+    		</div>
+		</nav>
+	</div>
+
+			<div class='col-2 offset-4 offset-md-5'>
+					<button type="button" class="btn btn-outline-light mt-2 ms-md-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</button>
+					<button type="button" class="btn btn-outline-light mt-2 ms-md-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Signup</button>
+		</div>
+{% block content %}
+<!-- banner text -->
+		<div class='col-12 ms-5'>
+				<h1 class='bannertext animate__flipInX'>CONTACT US</h1>
+				<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+					  <ol class="breadcrumb">
+					    <li class="breadcrumb-item"><a href="#">Home</a></li>
+					    <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+					  </ol>
+				</nav>
+				
+		</div>
+	
+		</div>
+  	</div>
+  	</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!--contact us body-->
+
+<div class="container">
+  <h3 class="text-center mt-5">Contact</h3>
+  <p class="text-center">We are always available for you.</p>
+  <div class="row test">
+    <div class="col-md-4">
+      <p><i class="fa-solid fa-location-dot"></i> Ipaja,Lagos.</p>
+      <p><i class="fa-solid fa-phone"></i> Phone: +234 8054763747</p>
+      <p><i class="fa-solid fa-envelope"></i> Email: info@houseme.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+      	<form>
+        <div class="col-sm-8 form-group">
+          <input class="form-control" id="name" name="fname" placeholder="First name" type="text" required>
+          <input class="form-control mt-3" id="name" name="lname" placeholder="Last name" type="text" required>
+        </div>
+
+        <div class="col-sm-8 form-group">
+          <input class="form-control mt-3" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <div class= 'col-sm-8'>
+      <textarea class="form-control mt-3" id="comments" name="comments" placeholder="Comment" rows="4"></textarea>
+    	</div>
+      <div class="row">
+        <div class="col-md-12 form-group mt-3">
+          <button class="btn btn-outline-success" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+{% endblock %}
+
+<!--Footer-->
+
+							<footer>
+							<div class='container-fluid'>
+								<div class='row mt-5' id='footer'>
+										<div class='col-12 col-md-3 mt-3 ps-5'>
+											<img src='images/houseme.png' height='70px' width='40%' alt='logo' id='footerlogo'>
+											<p class='mt-2' id='footermsg'>
+												HouseMe is a leading property listing website in Nigeria with properties for rent. We offer property seekers an easy way to house-hunt.
+											</p>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Our company</h5>
+											<ul>
+												<a href='#'><li>Home</li></a>
+												<a href='#'><li>Properties</li></a>
+												<a href='#'><li>Contact us</li></a>
+												<a href='#'><li>About us</li></a>
+												<a href='#'><li>Terms of us</li></a>
+												<a href='#'><li>Privacy policy</li></a>
+											</ul>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Popular locations</h5>
+											<ul>
+												<a href='#'><li>Lagos Mainland</li></a>
+												<a href='#'><li>Lagos Island</li></a>
+												<a href='#'><li>Ibeju-Lekki</li></a>
+												<a href='#'><li>Surulere</li></a>
+												<a href='#'><li>Ikorodu</li></a>
+											</ul>
+										</div>
+										<div class='col-12 col-md-2 offset-md-1'>
+											<h5 align='center' class='mt-5 footertxt'>Social media</h5>
+											<ul>
+												<a href='#'><li><i class="fa-brands fa-facebook-square"></i> Facebook</li></a>
+												<a href='#'><li><i class="fa-brands fa-twitter-square"></i> Twitter</li></a>
+												<a href='#'><li><i class="fa-brands fa-instagram-square"></i> Instagram</li></a>
+												<a href='#'><li><i class="fa-brands fa-linkedin"></i> Linkedin</li></a>
+											</ul>
+										</div>
+										<div class='col-12 mt-4 ms-4 footertxt'>
+											<p> ©Copyright 2022 HouseMe all rights reserved</p>
+										</div>
+								</div>
+							</div>
+						</footer>
+
+<script src='jquery.min.js'></script>
+<script type='text/javascript' src='houseme.js' language='javascript'></script>
+<script type='text/javascript' src='js/bootstrap.bundle.min.js' language='javascript'>
+
+
+</script>
+</main>
+</body>
+</html>

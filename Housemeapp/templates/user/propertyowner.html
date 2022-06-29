@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<!--meta data-->
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width' initial scale='1' shrink-to-fit='no'>
+<meta name="description" content=" ">
+<meta name="author" content="Samuel Okediya">
+<meta name="keywords" content=" ">
+
+<!--External Links-->
+<link href='/static/houseme.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/css/bootstrap.css' type=text/css> 
+<link href='/static/fontawesome/css/all.min.css' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='/static/animate.min.css' type=text/css> 
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<title>Houseme property owner page</title>
+
+</head>
+
+<body>
+
+<!--Property owner dashboard-->
+
+
+<div class='container-fluid'>
+	<div class='row mt-2'>
+		
+			<div class='col-2' id='dashboardmenu'>
+				<div class='col-12' id='logospace'>
+				<div class='center-logo badge bg-light'><a href='#'><img src='/static/images/houseme.png' alt='logo' class='img fluid' id='toplogo'></a></div>
+			</div>
+				<div class='mt-3'>
+
+
+					<ul>
+                            <a href='{{url_for('propertyowner')}}'><li class='dmenulist'><i class="fa-solid fa-gauge"></i> Dashboard</li></a>
+                            <a href='{{url_for('listproperty')}}'><li class='dmenulist'><i class="fa-solid fa-house"></i> List a property</li></a>
+                            <a href='{{ url_for('owner_listings') }}'><li class='dmenulist'><i class="fa-solid fa-list"></i> My listings</li></a>
+                            <a href='#'><li class='dmenulist'><i class="fa-solid fa-money-bill"></i> Subscription</li></a>
+                            <a href='{{ url_for('pownerprofile') }}'><li class='dmenulist'><i class="fa-solid fa-address-card"></i></i> Profile</li></a>
+                            <a href='{{ url_for('pownerlogout') }}'><li class='dmenulist'><i class="fa-solid fa-power-off"></i></i> Logout </li></a>
+					</ul>
+					
+				</div>
+			</div>
+			<div class='col-10' id='dashboardcontent'>
+				<div class='welcome-btn'>
+					<span class='mt-3'><i class="fa-solid fa-face-smile"></i> Hello, {{ pownerdetails.owner_username }}</span>
+					<a href='{{url_for('listproperty')}}' class="btn btn-outline-success mt-3"><i class="fa-solid fa-house"></i> List your property</a>
+				</div>
+				
+				
+				
+				  <div class="row align-items-center powner-dboard mt-5">
+					    <div class="col-4 mt-5 dashboarditems">
+							<p class='mt-2' align='center'>Total listings</p>
+						  {% for p in properties %}
+						  {% if loop.index ==1 %}
+						  <h4 class='mt-5' align="center">{{ loop.length }} Properties</h4>
+						  {% endif %}
+						  {% endfor %}
+			
+					    </div>
+					    <div class="col-4 mt-5 dashboarditems">
+					      <p class='mt-2' align="center">Active listings</p>
+					    </div>
+					    <div class="col-4 mt-5 dashboarditems">
+					      <p class='mt-2' align="center">Inactive listings</p>
+					    </div>
+					      <div class="col-4 mt-5 dashboarditems">
+					      <p class='mt-2' align="center">Manage Subscriptions</p>
+					    </div>
+					    <div class="col-4 mt-5 dashboarditems">
+					      <p class='mt-2' align="center">Pending Approvals</p>
+					    </div>
+					  </div>
+				</div>
+	
+	</div>
+</div>
+
+
+
+
+<script src='/static/jquery.min.js'></script>
+<script type='text/javascript' src='/static/houseme.js' language='javascript'></script>
+<script type='text/javascript' src='/static/js/bootstrap.bundle.min.js' language='javascript'></script>
+</main>
+</body>
+</html>
